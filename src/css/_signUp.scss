@@ -1,0 +1,47 @@
+.signUp{
+  @extend .popOver;
+  .register{
+    @include isCenter;
+    width: 70%;
+    height: 5.88rem;
+    span.icon-close{
+      position: absolute;
+      top: .8rem;
+      right: -.5rem;
+      &:before{
+        color: $backColor;
+      }
+    }
+    .register-board{
+      width: 100%;
+      overflow: hidden;
+      padding: .1rem 0;
+      border-radius: 0 0 .1rem .1rem;
+      background: $white;
+      .getCode{
+        position: absolute;
+        bottom: 1.95rem;
+        right: .8rem;
+        color: $teleColor;
+      }
+      .btn-submit{
+        width: 75%;
+        height: .72rem;
+        border-radius: .15rem;
+        background: $backColor;
+        margin: .25rem auto;
+        text-align: center;
+        line-height: .72rem;
+        box-sizing: border-box;
+      }
+      input{
+        @extend .btn-submit;
+        display: block;
+        padding-left: .1rem;
+        border: 1px solid #e5e5e5;
+        background: $white;
+        text-align: left;
+      }
+    }
+  }
+}

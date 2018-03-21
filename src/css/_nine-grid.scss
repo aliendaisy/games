@@ -1,0 +1,82 @@
+$unChoose: rgb(255,235,235);
+$shadow: rgb(255,194,200);
+$outColor: rgb(232,27,84);
+$teleColor: rgb(252,85,102);
+$backColor: rgb(255,216,0);
+$selectColor: rgb(255,162,162);
+$selectShadow: rgb(255,120,133);
+$white: #fff;
+
+@mixin rounded-corners {
+  -moz-border-radius: .2rem;
+  -webkit-border-radius: .2rem;
+  border-radius: .2rem;
+}
+
+.nine-grid-box{
+  width: 86%;
+  margin: 0 auto;
+  background: $outColor;
+  border: {
+    width: .23rem;
+    style: solid;
+    color: $outColor;
+  }
+  box-sizing: border-box;
+  @include rounded-corners;
+  .nine-grid{
+    width: 100%;
+    background: $white;
+    border: {
+      width: .06rem;
+      style: solid;
+      color: $white;
+    }
+    box-sizing: border-box;
+    @include rounded-corners;
+    .grid-line{
+      width: 100%;
+      display: flex;
+      .grid{
+        margin: .06rem;
+        flex: 1;
+        height: 1.62rem;
+        text-align: center;
+        background: $unChoose;
+        box-shadow: 0 -.12rem 0 $shadow inset;
+        color: rgb(47,47,47);
+        @include rounded-corners;
+        img{
+          width: 75%;
+          margin: 0 auto;
+        }
+        p{
+          font-size: .2rem;
+        }
+      }
+    }
+  }
+}
+.centerGrid{
+  @extend .grid;
+  color: rgb(171,97,2) !important;
+  background: $backColor !important;
+  box-shadow: 0 -.12rem 0 rgb(255,176,1) inset !important;
+  h4{
+    padding-top: .4rem;
+  }
+  p{
+    font-size: .24rem !important;
+  }
+}
+.centerGridClick{
+  @extend .centerGrid;
+  box-shadow: 0 -.02rem 0 rgb(255,176,1) inset !important;
+  transition: box-shadow .2s;
+}
+.gridSelect{
+  @extend .grid;
+  background: $selectColor !important;
+  box-shadow: 0 -.12rem 0 $selectShadow inset !important;
+}
+

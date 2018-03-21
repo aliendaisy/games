@@ -1,0 +1,143 @@
+@import "nine-grid";
+@import "normal";
+//梯形
+@mixin trapezoid($width,$color,$longer,$side) {
+  width: $width;
+  border-top: $longer solid $color;
+  border-left: $side solid transparent;
+  border-right: $side solid transparent;
+}
+//旋转
+@mixin rotateTwice($angle1,$angle2,$origin1,$origin2) {
+  transform: rotate($angle1) rotate($angle2);
+  transform-origin: $origin1 $origin2;
+}
+//circle
+@mixin circle($radius){
+  width: $radius;
+  height: $radius;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+@keyframes evenToOdd {
+  0% {background: rgb(254,134,144);}
+  50% {background: rgb(255,220,126);}
+  100% {background: rgb(254,134,144);}
+}
+@keyframes oddToEven {
+  0% {background: rgb(255,220,126);}
+  50% {background: rgb(254,134,144);}
+  100% {background: rgb(255,220,126);}
+}
+.television{
+  width: 100%;
+  position: relative;
+  .television-header{
+    div{
+      margin: 0 auto;
+    }
+    > div{
+      width: 54.4%;
+      background: $white;
+      border: 2px solid $teleColor;
+      border-radius: 1rem;
+      > p{
+        text-align: center;
+        color: rgb(171,97,2);
+        font-size: .28rem;
+        padding: .1rem 0;
+      }
+      & + div{
+        width: 22%;
+        border-top: none;
+        border-bottom: none;
+        border-radius: 0;
+        background: $backColor;
+        font-size: .18rem;
+      }
+    }
+  }
+  .television-body{
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
+    padding: 6.3% 0;
+    background: $teleColor;
+    border: 2px solid $white;
+    box-shadow: 0 -.12rem 0 rgb(232,27,84) inset;
+    @include rounded-corners;
+    //light显示
+    ul.light-board{
+      position: absolute;
+      width: 85%;
+      list-style-type: none;
+      display: flex;
+      li.light{
+        flex: 1;
+        div{
+          @include circle(.2rem);
+        }
+        &:nth-child(even) div{
+          animation: evenToOdd 1s infinite;
+        }
+        &:nth-child(odd) div{
+          animation: oddToEven 1s infinite;
+        }
+      }
+    }
+  }
+  .television-footer{
+    display: flex;
+    .oneFoot{
+      width: 50%;
+      flex: 1;
+      > div{
+        margin: 0 auto;
+        @include trapezoid(.78rem,.24rem,#6c442b,.05rem);
+      }
+    }
+  }
+}
+//电视底部阴影
+.bottom-shadow{
+  width: 90%;
+  margin: 0 auto;
+  margin-top: -.12rem;
+  background: rgb(251,194,53);
+  border-radius: 1rem;
+  font-size: .18rem;
+}
+//活动规则
+.top-rule{
+  width: 20%;
+  background: $teleColor;
+  color: $white;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  overflow: hidden;
+  font-size: .24rem;
+  padding: .06rem 0;
+  text-align: center;
+  @include isTopRight;
+  top: .1rem;
+}
+//灯管效果
+.light-board-top{
+  top: .14rem;
+  left: 10%;
+}
+.light-board-right{
+  right: .13rem;
+  bottom: 3%;
+  @include rotateTwice(270deg,180deg,right,top);
+}
+.light-board-bottom{
+  bottom: .2rem;
+  right: 10%;
+  transform: rotate(180deg);
+}
+.light-board-left{
+  left: .15rem;
+  bottom: 8%;
+  @include rotateTwice(90deg,180deg,left,top);
+}

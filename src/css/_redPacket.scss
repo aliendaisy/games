@@ -1,0 +1,158 @@
+@mixin borderMask($borderWidth){
+  box-sizing: border-box;
+  background: rgb(230,84,74);
+  border: $borderWidth solid rgb(218,57,50);
+  box-shadow: 0 -.06rem rgb(175,86,74);
+}
+.red-packet{
+  position: relative;
+  width: 84.5%;
+  min-height: 6.82rem;
+  margin: 0 auto;
+  margin-top: -1.3rem;
+  margin-bottom: .7rem;
+  .red-packet-cap{
+    position: absolute;
+    left: 2.5%;
+    padding: 47.5%;
+    border-radius: 50%;
+    box-sizing: border-box;
+    background: rgb(179,44,37);
+    clip: rect(0,100rem,2.1rem,0);
+    top: -1.3rem;
+    z-index: 901;
+  }
+  .red-packet-header{
+    position: relative;
+    z-index: 902;
+    display: flex;
+    height: 1.1rem;
+    .red-packet-ear{
+      flex: 1;
+      height: 100%;
+      div {
+        width: 1.2rem;
+        height: inherit;
+        background: rgb(218, 57, 50);
+        border-radius: 15% 15% 0 0 / 25% 25% 0 0;
+        &.ear-right{
+          float: right;
+          @include borderMask(.06rem);
+          .ear-mask{
+            width: 100%;
+            border-radius: 10% 50% 0 0 / 20% 40% 0 0;
+          }
+        }
+      }
+      > div{
+        box-shadow: .06rem -.06rem rgb(175,86,74);
+      }
+    }
+  }
+  .red-packet-body{
+    width: 100%;
+    min-height: inherit;
+    @include borderMask(.12rem);
+    border-radius: 0 0 .4rem .4rem;
+    .red-packet-mask {
+      width: 100%;
+      min-height: inherit;
+      overflow: hidden;
+      background: rgb(218,57,50);
+      border-radius: 0 0 .3rem 15% / 0 0 .3rem 25%;
+      .red-packet-content{
+        @mixin title($padding){
+          font-family: 'FZPWJ';
+          font-size: .38rem;
+          color: rgb(253,210,62);
+          text-align: center;
+          padding: $padding 0;
+        }
+        .title{
+          padding-top: .76rem;
+        }
+        .title-A{
+          @include title(.88rem);
+        }
+        .title-B{
+          @include title(.22rem);
+        }
+        .title-C{
+          @include title(.11rem);
+        }
+        .hadHelped{
+          &:first-child{
+            margin-top: 2rem;
+          }
+          font-family: 'FZPWJ';
+          color: rgb(253,210,62);
+          font-size: .36rem;
+          text-align: center;
+        }
+        .card{
+          position: relative;
+          width: 70%;
+          margin: 0 auto;
+          text-align: center;
+          p{
+            font-family: 'FZPWJ';
+            color: rgb(218,57,50);
+            font-size: .36rem;
+          }
+          .card-left{
+            position: absolute;
+            top: .1rem;
+            left: .18rem;
+            width: 20.3%;
+            height: .96rem;
+            line-height: .96rem;
+            border-radius: .1rem;
+            background: $white;
+          }
+          .card-right{
+            position: absolute;
+            width: 70%;
+            top: 0;
+            left: 30%;
+            line-height: 1.18rem;
+          }
+        }
+        .mobile{
+          text-align: center;
+          padding: 1.1rem 0 .26rem;
+          p{
+            font-size: .24rem;
+            color: rgb(34,34,34);
+            a{
+              font-size: .24rem;
+              color: rgb(253,210,62);
+            }
+          }
+        }
+        .red-packet-btn{
+          width: 72.5%;
+          height: .72rem;
+          margin: 0 auto;
+          margin-bottom: .3rem;
+          border-radius: .1rem;
+          text-align: center;
+          line-height: .72rem;
+          background: rgb(250,210,5);
+          p{
+            color: rgb(218,57,50);
+            font-size: .34rem;
+          }
+        }
+        input{
+          @extend .red-packet-btn;
+          display: block;
+          margin-top: .8rem;
+          margin-bottom: .5rem;
+          border: none;
+          background: $white;
+        }
+      }
+    }
+  }
+}
+

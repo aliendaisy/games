@@ -1,0 +1,77 @@
+@import "television";
+//圆角按钮
+@mixin rounded-btn($width,$back,$font){
+  width: $width;
+  border-radius: 1rem;
+  padding: .12rem 0;
+  text-align: center;
+  color: $font;
+  background: $back;
+}
+//按钮区域
+.btn-area{
+  padding: .4rem 0 .52rem;
+  display: flex;
+  a{
+    flex: 1;
+    @include rounded-btn(36%,$teleColor,rgb(246,255,0));
+    margin: 0 10%;
+    box-shadow: 0 -.06rem 0 $outColor inset;
+    p{
+      font-size: .30rem;
+    }
+    .btn-center{
+      p{
+        color: $white;
+      }
+    }
+  }
+}
+//中奖名单区域
+.award-area{
+  position: relative;
+  .top-award{
+    @extend .top-rule;
+    p{
+      font-size: .24rem;
+    }
+  }
+  .btn-award{
+    margin: 0 auto;
+    margin-bottom: .3rem;
+    border: 1px solid rgb(255,244,180);
+    @include rounded-btn(32%,transparent,rgb(171,97,2));
+  }
+  .award-list{
+    box-sizing: border-box;
+    width: 86% !important;
+    height: 3.72rem !important;
+    margin: 0 auto;
+    padding: .28rem .46rem 0;
+    border: 1px solid rgb(255,244,180);
+    border-radius: .3rem;
+    overflow: hidden;
+    > .slider-frame{
+      height: 100% !important;
+    }
+    .v-item{
+      color: rgb(171,97,2);
+      font-size: .24rem;
+      padding-bottom: .28rem;
+      text-align: center;
+    }
+  }
+  .info-bottom{
+    text-align: center;
+    padding: .5rem 0;
+    p,a{
+      font-size: .24rem;
+    }
+  }
+}
+
+.game{
+  background: $backColor;
+  padding-bottom: 1.6rem;
+  height: 100%;
+}
